@@ -3,6 +3,7 @@ import { color } from '../../../utils/colors';
 
 export const styles = StyleSheet.create({
   container: {
+    backgroundColor: color.background.primary,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
