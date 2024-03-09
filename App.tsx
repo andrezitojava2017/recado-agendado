@@ -1,10 +1,9 @@
 
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
-import Login from './app/screens/login/login';
-import { color } from './app/utils/colors';
+import { Text } from 'react-native';
 import { GochiHand_400Regular, useFonts } from '@expo-google-fonts/gochi-hand'
 import * as SplashScreen from 'expo-splash-screen';
-
+import { NavigationContainer } from '@react-navigation/native';
+import StackNavigation from './navigation/stack';
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -20,17 +19,8 @@ export default function App() {
   SplashScreen.hideAsync()
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Login />
-    </SafeAreaView>
+    <NavigationContainer>
+      <StackNavigation />
+    </NavigationContainer>
   );
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: color.background.primary,
-    flex: 1
-  },
-
-})
