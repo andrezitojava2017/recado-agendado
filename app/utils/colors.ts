@@ -3,12 +3,18 @@ export const color = {
     primary: '#023047',
     secundary: '#405B68',
   },
+  border: {
+    primary: '#8ECAE6',
+  },
   text: {
     primary: '#FB8500',
     secundary: '#8ECAE6',
     others: '#023047',
   },
-  icons: '#FB8500',
+  icons: {
+    form: '#FB8500',
+    btnFloat: '#8ECAE6',
+  },
   btnSign: {
     primary: '#FFB703',
   },
