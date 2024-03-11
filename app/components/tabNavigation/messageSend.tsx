@@ -1,10 +1,11 @@
-import { Text, View } from "react-native"
-import { color } from "../../utils/colors"
+import { View } from "react-native"
+import ListSend from "./components/listSend"
+import { styles } from "./style/style"
 
 const MessageSend = () => {
     return (
-        <View style={{ flex: 1, backgroundColor: color.background.primary }}>
-            <Text style={{ color: color.text.primary }}>Mensagens Enviadas</Text>
+        <View style={styles.container}>
+            <ListSend />
         </View>
     )
 }
