@@ -2,6 +2,7 @@ export const color = {
   background: {
     primary: '#023047',
     secundary: '#405B68',
+    others: '#8ecae6',
   },
   border: {
     primary: '#8ECAE6',
