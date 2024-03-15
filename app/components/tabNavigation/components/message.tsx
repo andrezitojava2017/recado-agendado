@@ -1,23 +1,26 @@
+import { useContext } from "react"
 import { Text, View } from "react-native"
+import { MessageContext } from "../../../context/messageContext"
 import { styles } from "./style/styles"
 
-type message = {
-    destinatario: { name: string, contato: string },
-    mensagem: string,
-    data: string,
-    tipo: string
-}
 
 
-type Props = {
-    dados: message
-}
-const DataMessage = ({ dados }: Props) => {
+const DataMessage = () => {
+
+    const context = useContext(MessageContext);
+
+    if (context === null) {
+        // Aqui você pode retornar alguma UI de fallback ou null para não renderizar nada
+        return <Text>Carregando...</Text>
+    }
+    const { message, setMessage } = context;
+
+    console.log(message)
     return (
         <View style={styles.container}>
-            <Text style={styles.contact}>{dados.destinatario.name}</Text>
-            <Text style={styles.date}>{dados.data}</Text>
-            <Text style={styles.typeEvent}>{dados.tipo}</Text>
+            <Text style={styles.contact}>{message?.identificacao}</Text>
+            <Text style={styles.date}>{message?.dataHora}</Text>
+            <Text style={styles.typeEvent}>{message?.descricaoTipo}</Text>
         </View>
     )
 }
