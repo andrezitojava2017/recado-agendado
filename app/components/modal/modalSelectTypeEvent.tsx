@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react"
-import { KeyboardAvoidingView, Modal, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Modal, Text, TextInput, TouchableOpacity, View } from "react-native"
 import { styles } from "../../screens/schedule/style/styles"
 import { color } from "../../utils/colors"
 import { modalStyles } from "./modalStyle"
@@ -39,7 +39,7 @@ const ModalSelectTypeEvent = ({ visible, setType, setVisible }: Props) => {
                         placeholderTextColor={color.text.secundary}
                         style={{ paddingHorizontal: 10 }}
                     />
-                    <MaterialCommunityIcons name="comment-search" size={38} color={color.icons.form} />
+                    <MaterialCommunityIcons name="comment-search" size={22} color={color.icons.form} />
                 </TouchableOpacity>
             </View>
         </View>
