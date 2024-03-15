@@ -1,5 +1,8 @@
+import { IAgendamento } from './IAgendamento';
+import { ITipoMensagem } from './ITipoMensagem';
+
 export interface IDestinatario {
-  id?: number;
-  identificacao: string;
-  contato?: number;
+  id_Destinatario?: number;
+  identificacao?: string;
+  contato?: string;
 }

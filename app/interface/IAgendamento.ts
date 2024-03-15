@@ -1,7 +1,7 @@
 import { IMensagem } from './IMensagens';
 
-export interface IAgendamento extends IMensagem {
-  id?: number;
-  dataHora: string;
-  status: string;
+export interface IAgendamento {
+  id_agendamento?: number;
+  dataHora?: string;
+  status?: string;
 }
