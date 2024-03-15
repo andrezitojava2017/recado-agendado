@@ -33,7 +33,7 @@ const ListSchedule = ({ agendado }: Props) => {
             <View style={{ ...styles.containerListSend, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingRight: 18, paddingLeft: 14 }}>
                 <View>
                     <TouchableOpacity >
-                        <DataMessage dados={item} />
+                        <DataMessage />
                     </TouchableOpacity>
                 </View>
                 <View >
