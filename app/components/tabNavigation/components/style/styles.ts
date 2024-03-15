@@ -4,7 +4,7 @@ import { color } from '../../../../utils/colors';
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    paddingHorizontal: 10,
   },
 
   contact: {
@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
     color: color.text.secundary,
   },
   containerListSend: {
+    height: 60,
     marginHorizontal: 6,
     marginVertical: 4,
     borderWidth: 1,
