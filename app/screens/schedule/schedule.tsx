@@ -61,7 +61,7 @@ const Schedule = () => {
                          </Text>
                             <MaterialIcons
                                 name="perm-contact-cal"
-                                size={38}
+                                size={22}
                                 color={color.icons.form} />
                         </TouchableOpacity>
                     </View>
@@ -79,7 +79,7 @@ const Schedule = () => {
                     </Text>
                             <Fontisto
                                 name="date"
-                                size={34}
+                                size={22}
                                 color={color.icons.form}
                             />
                         </TouchableOpacity>
@@ -98,7 +98,7 @@ const Schedule = () => {
                     </Text>
                             <Ionicons
                                 name="timer"
-                                size={38}
+                                size={22}
                                 color={color.icons.form}
                             />
                         </TouchableOpacity>
