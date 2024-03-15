@@ -4,10 +4,10 @@ import { color } from '../../utils/colors';
 export const modalStyles = StyleSheet.create({
   modalContent: {
     position: 'absolute',
-    bottom: 2,
+    bottom: 14,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
+    //alignSelf: 'center',
     backgroundColor: color.background.secundary,
     width: '100%',
     height: '50%',
