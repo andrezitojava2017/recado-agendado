@@ -5,7 +5,7 @@ export const modalStyles = StyleSheet.create({
   modalContent: {
     position: 'absolute',
     bottom: 2,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: color.background.secundary,
