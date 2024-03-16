@@ -7,7 +7,7 @@ export const modalStyles = StyleSheet.create({
     bottom: 2,
     justifyContent: 'space-between',
     alignItems: 'center',
-    alignSelf: 'center',
+    //alignSelf: 'center',
     backgroundColor: color.background.secundary,
     width: '100%',
     height: '50%',
