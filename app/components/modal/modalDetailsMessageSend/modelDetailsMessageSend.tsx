@@ -44,7 +44,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
             >
               CONTATO:{" "}
               <Text style={{ color: color.text.primary }}>
-                {message?.mensagem}
+                {message?.destinatario}
               </Text>
             </Text>
           </View>

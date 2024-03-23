@@ -4,6 +4,7 @@ import ModalDetailsMessageSend from "../../modal/modalDetailsMessageSend/modelDe
 import { useContext, useState } from "react"
 import { MessageContext } from "../../../context/messageContext"
 import { IAgendamento } from "../../../interface/IAgendamento"
+import DataMessage from "./dataMessage"
 
 type messagem = {
     destinatario: string,
@@ -25,19 +26,19 @@ const ListSend = () => {
     const { message, setMessage } = context;
 
     const listSend = [{
-        destinatario: 'Amor', contato: '6698101',
+        destinatario: 'Amor', contato_destinatario: '6698101',
         mensagem: 'Mensagem de teste de aplicativo',
         data_hora: '07/03/2024 10:00',
         tipo_mensagem: 'Aniversário'
     },
     {
-        destinatario: 'Escola', contato: '6698101',
+        destinatario: 'Escola', contato_destinatario: '6698101',
         mensagem: 'Mensagem de teste de aplicativo',
         data_hora: '07/03/2024 10:00',
         tipo_mensagem: 'Lembrete'
     },
     {
-        destinatario: 'Trabalho', contato: '6698101',
+        destinatario: 'Trabalho', contato_destinatario: '6698101',
         mensagem: 'Mensagem de teste de aplicativo',
         data_hora: '07/03/2024 10:00',
         tipo_mensagem: 'Lembrete'
@@ -62,12 +63,14 @@ const ListSend = () => {
                 style={styles.containerListSend}
                 onPress={() => setValueMessageContext(item)}
             >
+                <DataMessage message={item} />
+                { /*
                 <View style={styles.container}>
                     <Text style={styles.contact}>{item?.destinatario}</Text>
                     <Text style={styles.date}>{item?.data_hora}</Text>
                     <Text style={styles.typeEvent}>{item?.tipo_mensagem}</Text>
                 </View>
-
+        */}
 
             </TouchableOpacity>
         )
