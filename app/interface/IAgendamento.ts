@@ -1,7 +1,9 @@
-import { IMensagem } from './IMensagens';
-
 export interface IAgendamento {
-  id_agendamento?: number;
-  dataHora?: string;
+  id?: number;
+  data_hora?: string;
   status?: string;
+  mensagem?: string;
+  destinatario?: string;
+  contato_destinatario?: string;
+  tipo_mensagem?: string;
 }

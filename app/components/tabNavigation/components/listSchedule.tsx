@@ -1,39 +1,53 @@
-import { FlatList, Text, TouchableOpacity, View } from "react-native"
-import DataMessage from "./message"
+import { FlatList, TouchableOpacity, View } from "react-native"
+import DataMessage from "./dataMessage"
 import { styles } from "./style/styles"
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { color } from '../../../utils/colors';
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import { IAgendamento } from "../../../interface/IAgendamento";
 
 type message = {
-    destinatario: { name: string, contato: string },
+    destinatario: string,
+    contato: string,
     mensagem: string,
     data: string,
     tipo: string
 }
-type Props = {
-    agendado: message
-}
 
-const ListSchedule = ({ agendado }: Props) => {
+
+const ListSchedule = () => {
 
     const schedule = [{
-        destinatario: { name: 'Amor', contato: '6698101' },
+        destinatario: 'Amor', contato: '6698101',
         mensagem: 'Mensagem de teste de aplicativo',
-        data: '07/03/2024 10:00',
+        data_hora: '07/03/2024 10:00',
         tipo: 'Aniversário'
+    },
+    {
+        destinatario: 'Escola', contato: '6698101',
+        mensagem: 'Mensagem de teste de aplicativo',
+        data_hora: '07/03/2024 10:00',
+        tipo: 'Lembrete'
     },
 
     ]
 
 
-    const renderItem = (item: message) => {
+
+    const renderItem = (item: IAgendamento) => {
         return (
-            <View style={{ ...styles.containerListSend, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingRight: 18, paddingLeft: 14 }}>
+            <View style={{
+                ...styles.containerListSend,
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                paddingRight: 18,
+                paddingLeft: 14
+            }}
+            >
                 <View>
                     <TouchableOpacity >
-                        <DataMessage />
+                        <DataMessage message={item} />
                     </TouchableOpacity>
                 </View>
                 <View >

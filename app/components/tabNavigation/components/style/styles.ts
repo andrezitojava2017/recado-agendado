@@ -1,4 +1,3 @@
-import { GochiHand_400Regular } from '@expo-google-fonts/gochi-hand';
 import { StyleSheet } from 'react-native';
 import { color } from '../../../../utils/colors';
 
@@ -22,7 +21,8 @@ export const styles = StyleSheet.create({
     color: color.text.secundary,
   },
   containerListSend: {
-    height: 60,
+    //height: 60,
+    padding: 4,
     marginHorizontal: 6,
     marginVertical: 4,
     borderWidth: 1,

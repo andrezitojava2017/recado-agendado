@@ -1,10 +1,10 @@
 
 import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
-import { IMensagem } from '../interface/IMensagens';
+import { IAgendamento } from '../interface/IAgendamento';
 
 interface MessageContextType {
-    message: IMensagem,
-    setMessage: Dispatch<SetStateAction<IMensagem>>,
+    message: IAgendamento,
+    setMessage: Dispatch<SetStateAction<IAgendamento>>,
 }
 
 interface MessageProviderProps {
@@ -16,7 +16,7 @@ export const MessageContext = createContext<MessageContextType | null>(null)
 
 const MessageProvider = ({ children }: MessageProviderProps) => {
 
-    const [message, setMessage] = useState<IMensagem>({ dataHora: '', descricaoMensagem: '', descricaoTipo: '', identificacao: '', status: '', contato: '', })
+    const [message, setMessage] = useState<IAgendamento>({ data_hora: '', mensagem: '', tipo_mensagem: '', destinatario: '', status: '', contato_destinatario: '', })
 
     return (
         <MessageContext.Provider value={{ message, setMessage }}>

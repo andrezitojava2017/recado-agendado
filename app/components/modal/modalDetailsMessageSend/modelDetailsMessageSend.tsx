@@ -44,7 +44,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
             >
               CONTATO:{" "}
               <Text style={{ color: color.text.primary }}>
-                {message?.identificacao}
+                {message?.mensagem}
               </Text>
             </Text>
           </View>
@@ -55,7 +55,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
             >
               <Fontisto name="date" size={24} color={color.text.secundary} />
               <Text style={{ color: color.text.primary, fontSize: 14 }}>
-                {message?.dataHora}
+                {message?.data_hora}
               </Text>
             </View>
 
@@ -74,7 +74,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
                   fontFamily: "Poppins_400Regular",
                 }}
               >
-                {message?.dataHora}
+                {message?.data_hora}
               </Text>
             </View>
           </View>
@@ -89,7 +89,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
                   fontFamily: "Poppins_400Regular",
                 }}
               >
-                {message?.descricaoTipo}
+                {message?.tipo_mensagem}
               </Text>
             </Text>
           </View>
@@ -103,7 +103,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
                 fontFamily: "Poppins_400Regular",
               }}
             >
-              {message?.descricaoMensagem}
+              {message?.mensagem}
             </Text>
           </View>
 
