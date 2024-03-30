@@ -18,9 +18,10 @@ export const styles = StyleSheet.create({
     padding: 18,
     borderRadius: 12,
     marginTop: 37,
-    text: {
-      color: color.text.others,
-      fontSize: 16,
-    },
+  },
+  textButton: {
+    textAlign: 'center',
+    color: color.text.others,
+    fontSize: 16,
   },
 });

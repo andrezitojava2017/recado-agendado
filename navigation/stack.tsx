@@ -4,6 +4,7 @@ import Header from '../app/components/header/header'
 import { color } from '../app/utils/colors';
 import Home from '../app/screens/home/home';
 import Schedule from '../app/screens/schedule/schedule';
+import Register from '../app/screens/register/register';
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
@@ -39,6 +40,24 @@ const StackNavigation = () => {
                 options={{
                     headerTitle: () => <Header />,
                     headerBackVisible: false,
+                    headerStyle: {
+                        backgroundColor: color.background.secundary,
+                    },
+                    headerTintColor: color.text.primary,
+                    headerTitleStyle: {
+                        fontFamily: 'GochiHand_400Regular',
+                        fontSize: 22,
+                    },
+
+                }}
+            />
+            <Stack.Screen
+                name="Register"
+                component={Register}
+                options={{
+
+                    // headerBackVisible: false,
+                    title: 'Registre-se',
                     headerStyle: {
                         backgroundColor: color.background.secundary,
                     },

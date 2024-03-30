@@ -7,11 +7,23 @@ import NewSchedule from '../../components/button/newSchedule';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Schedule from '../schedule/schedule';
 import Header from '../../components/header/header';
+import { AppState } from 'react-native';
+import { supabase } from '../../config/supabase';
 
 const Tab = createMaterialTopTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const Home = ({ navigation }: any) => {
+
+    AppState.addEventListener('change', (state) => {
+        if (state === 'active') {
+            supabase.auth.startAutoRefresh()
+        } else {
+            supabase.auth.stopAutoRefresh()
+        }
+    })
+
+
     return (
         <>
             <Tab.Navigator
