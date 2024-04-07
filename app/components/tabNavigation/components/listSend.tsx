@@ -28,19 +28,22 @@ const ListSend = () => {
     const listSend = [{
         destinatario: 'Amor', contato_destinatario: '6698101',
         mensagem: 'Mensagem de teste de aplicativo',
-        data_hora: '07/03/2024 10:00',
+        data: '07/03/2024',
+        horario: '10:00',
         tipo_mensagem: 'Aniversário'
     },
     {
         destinatario: 'Escola', contato_destinatario: '6698101',
         mensagem: 'Mensagem de teste de aplicativo',
-        data_hora: '07/03/2024 10:00',
+        data: '07/03/2024',
+        horario: '10:00',
         tipo_mensagem: 'Lembrete'
     },
     {
         destinatario: 'Trabalho', contato_destinatario: '6698101',
         mensagem: 'Mensagem de teste de aplicativo',
-        data_hora: '07/03/2024 10:00',
+        data: '07/03/2024',
+        horario: '10:00',
         tipo_mensagem: 'Lembrete'
     }
     ]
@@ -50,7 +53,7 @@ const ListSend = () => {
 
     const setValueMessageContext = (item: IAgendamento) => {
 
-        setMessage({ data_hora: item.data_hora, destinatario: item.destinatario, contato_destinatario: item.contato_destinatario, mensagem: item.mensagem, tipo_mensagem: item.tipo_mensagem })
+        setMessage({ data: item.data, horario: item.horario, destinatario: item.destinatario, contato_destinatario: item.contato_destinatario, mensagem: item.mensagem, tipo_mensagem: item.tipo_mensagem })
 
         if (message) {
             setVisible(true)

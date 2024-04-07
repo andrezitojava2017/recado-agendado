@@ -55,7 +55,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
             >
               <Fontisto name="date" size={24} color={color.text.secundary} />
               <Text style={{ color: color.text.primary, fontSize: 14 }}>
-                {message?.data_hora}
+                {message?.data}
               </Text>
             </View>
 
@@ -74,7 +74,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
                   fontFamily: "Poppins_400Regular",
                 }}
               >
-                {message?.data_hora}
+                {message?.horario}
               </Text>
             </View>
           </View>

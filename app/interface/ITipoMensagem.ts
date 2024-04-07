@@ -1,4 +1,4 @@
 export interface ITipoMensagem {
-  id_tipoMensagem?: number;
-  descricaoTipo?: string;
+  id?: number;
+  descricao_tipo?: string;
 }

@@ -1,9 +1,10 @@
 export interface IAgendamento {
   id?: number;
-  data_hora?: string;
-  status?: string;
+  data?: string;
+  horario?: string;
+  status?: 'enviada' | 'agendado';
   mensagem?: string;
   destinatario?: string;
   contato_destinatario?: string;
-  tipo_mensagem?: string;
+  tipo_mensagem?: number;
 }

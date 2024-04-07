@@ -1,13 +1,26 @@
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, Text, TextInput, ToastAndroid, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles/style";
 import { useState } from "react";
 import { form } from "../../utils/styleForm/form";
 import { ICredentialsUser } from "../../interface/ICredentialsUser";
+import { signIn } from "./actions";
 
 
 const Login = ({ navigation }: any) => {
 
     const [credencialUser, setCredencialUser] = useState<ICredentialsUser>({ email: '', password: '' })
+
+    const handleAuth = async () => {
+        try {
+
+            await signIn(credencialUser, navigation)
+            navigation.navigate('Home')
+
+        } catch (error: any) {
+            ToastAndroid.showWithGravity(error.message, 3000, ToastAndroid.LONG);
+        }
+    }
+
 
     return (
 
@@ -37,9 +50,9 @@ const Login = ({ navigation }: any) => {
 
             <TouchableOpacity
                 //onPress={() => navigation.navigate('Home')}
-                onPress={() => console.log(credencialUser)}
-                style={styles.button}>
-
+                onPress={handleAuth}
+                style={styles.button}
+            >
                 <Text style={styles.textButton}>Entrar</Text>
             </TouchableOpacity>
 

@@ -1,13 +1,26 @@
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, Text, TextInput, ToastAndroid, TouchableOpacity, View } from "react-native";
 import { styles } from "../login/styles/style";
 import { form } from "../../utils/styleForm/form";
 import { useState } from "react";
 import { ICredentialsUser } from "../../interface/ICredentialsUser";
+import { registerCredential } from "./actions";
 
 
 const Register = ({ navigation }: any) => {
 
     const [credential, setCredential] = useState<ICredentialsUser>({ email: '', password: '' })
+
+    const handleRegister = async () => {
+
+        try {
+
+            await registerCredential(credential)
+            navigation.goBack();
+            ToastAndroid.showWithGravity('Parabéns! agora você está cadastrado no Recado Agendado', 4000, ToastAndroid.LONG);
+        } catch (error: any) {
+            ToastAndroid.showWithGravity(error.message, 3000, ToastAndroid.LONG);
+        }
+    }
 
     return (
 
@@ -37,10 +50,10 @@ const Register = ({ navigation }: any) => {
 
             <TouchableOpacity
                 //onPress={() => navigation.navigate('Home')}
-                onPress={() => console.log(credential)}
+                onPress={handleRegister}
                 style={styles.button}>
 
-                <Text style={styles.textButton}>Entrar</Text>
+                <Text style={styles.textButton}>Confirmar</Text>
             </TouchableOpacity>
 
 

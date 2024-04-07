@@ -1,18 +1,27 @@
 import { supabase } from '../config/supabase';
 import { ICredentialsUser } from '../interface/ICredentialsUser';
 
-const createCredentials = async (credential: ICredentialsUser) => {
-  const { data, error } = await supabase.auth.signUp({
-    email: 'example@email.com',
-    password: 'example-password',
-    options: {
-      emailRedirectTo: 'https://example.com/welcome',
-    },
+export const createCredentials = async (credential: ICredentialsUser) => {
+  const { data, error } = await supabase.auth.signUp(credential);
+
+  if (error) {
+    console.log(error);
+    throw new Error('Não foi possivel registar novo usuario');
+  }
+
+  //console.log(data);
+  return data;
+};
+
+export const signInEmail = async (credencial: ICredentialsUser) => {
+  let { data, error } = await supabase.auth.signInWithPassword({
+    email: credencial.email,
+    password: credencial.password,
   });
 
   if (error) {
-    throw new Error('Ocorreu um erro ao tentar gravar novo usuario');
+    throw new Error('Não foi possivel logar com E-mail e senha');
   }
-
-  console.log(data);
+  //console.log(data);
+  return data;
 };

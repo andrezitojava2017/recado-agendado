@@ -3,7 +3,9 @@ export interface ICredentialsUser {
   email: string;
   password: string;
   options?: {
-    name: string;
-    chat_id?: number;
+    data: {
+      name: string;
+      chat_id?: number;
+    };
   };
 }

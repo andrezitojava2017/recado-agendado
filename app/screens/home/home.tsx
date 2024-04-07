@@ -5,8 +5,6 @@ import MessageScheduled from "../../components/tabNavigation/messageScheduled";
 import { color } from "../../utils/colors";
 import NewSchedule from '../../components/button/newSchedule';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Schedule from '../schedule/schedule';
-import Header from '../../components/header/header';
 import { AppState } from 'react-native';
 import { supabase } from '../../config/supabase';
 

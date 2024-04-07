@@ -5,6 +5,7 @@ import { color } from '../app/utils/colors';
 import Home from '../app/screens/home/home';
 import Schedule from '../app/screens/schedule/schedule';
 import Register from '../app/screens/register/register';
+import ViewListContacts from '../app/components/contacts/contacts';
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
@@ -58,6 +59,24 @@ const StackNavigation = () => {
 
                     // headerBackVisible: false,
                     title: 'Registre-se',
+                    headerStyle: {
+                        backgroundColor: color.background.secundary,
+                    },
+                    headerTintColor: color.text.primary,
+                    headerTitleStyle: {
+                        fontFamily: 'GochiHand_400Regular',
+                        fontSize: 22,
+                    },
+
+                }}
+            />
+            <Stack.Screen
+                name="Contacts"
+                component={ViewListContacts}
+                options={{
+
+                    // headerBackVisible: false,
+                    title: 'Selecione um contato',
                     headerStyle: {
                         backgroundColor: color.background.secundary,
                     },
