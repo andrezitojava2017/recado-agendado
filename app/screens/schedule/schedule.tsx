@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import ModalSelectTypeEvent from "../../components/modal/modalSelectTypeEvent";
 import { IAgendamento } from "../../interface/IAgendamento";
 import { TypeMessage } from "../../hooks/useTypeMessage";
-import { addNewSchedule } from "../../service/scheduleService";
+import { addNewSchedule } from "../../service/messageService";
 import { ITipoMensagem } from "../../interface/ITipoMensagem";
 import { clearForm } from "./actions";
 
@@ -25,14 +25,16 @@ const Schedule = ({ navigation }: any) => {
         destinatario: '',
         mensagem: '',
         status: 'agendado',
-        tipo_mensagem: 0
+        tipo_mensagem: {
+            descricao_tipo: ''
+        }
     })
 
     const types = TypeMessage()
 
 
     useEffect(() => {
-        setNewSchedule({ ...newSchedule, tipo_mensagem: typeEvent?.id })
+        setNewSchedule({ ...newSchedule, tipo_mensagem: { id: typeEvent.id } })
     }, [typeEvent])
 
     const onChangeDate = (event: DateTimePickerEvent, selectedDate: Date | undefined) => {

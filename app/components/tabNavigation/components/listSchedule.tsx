@@ -1,4 +1,4 @@
-import { FlatList, ToastAndroid, TouchableOpacity, View } from "react-native"
+import { FlatList, Text, ToastAndroid, TouchableOpacity, View } from "react-native"
 import DataMessage from "./dataMessage"
 import { styles } from "./style/styles"
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -6,8 +6,10 @@ import { AntDesign } from '@expo/vector-icons';
 import { color } from '../../../utils/colors';
 import { IAgendamento } from "../../../interface/IAgendamento";
 import { useEffect, useState } from "react";
-import { getListSchedule } from "../../../service/scheduleService";
+import { getListMessage } from "../../../service/messageService";
 import { useSchedule } from "../../../hooks/useSchedule";
+import { STATUS } from "../../../constants/statusMessage";
+import { getMessages } from "./actions/actions";
 
 
 const ListSchedule = () => {
@@ -28,17 +30,18 @@ const ListSchedule = () => {
     },
 
     ]
-    const { listSchedule, setListSchedule } = useSchedule()
+    const { listSchedule, setListSchedule } = useSchedule({ status: STATUS.agendado })
     const [searchUpdating, setSearchUpdating] = useState<boolean>(false)
 
 
     const getSchedules = async () => {
         try {
-
-            const rs = await getListSchedule()
+            setSearchUpdating(true)
+            const rs = await getMessages(STATUS.agendado)
             if (rs) {
                 setListSchedule(rs)
             }
+            setSearchUpdating(false)
         } catch (error: any) {
             ToastAndroid.showWithGravity(error.message, 4000, ToastAndroid.SHORT)
         }
@@ -81,7 +84,7 @@ const ListSchedule = () => {
             keyExtractor={(item, index) => index.toString()}
             refreshing={searchUpdating}
             onRefresh={getSchedules}
-
+            ListEmptyComponent={<Text style={{ textAlign: "center", color: 'white', padding: 14, fontSize: 18 }}>Nenhuma mensagem agendada</Text>}
         />
     )
 }

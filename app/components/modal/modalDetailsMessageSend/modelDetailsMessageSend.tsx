@@ -4,6 +4,7 @@ import { Fontisto, MaterialCommunityIcons } from '@expo/vector-icons';
 import { modalStyles, stylesContent } from '../modalStyle'
 import { color } from '../../../utils/colors'
 import { MessageContext } from "../../../context/messageContext"; import { Ionicons } from '@expo/vector-icons';
+import { formatDate, formatTime } from "../../../utils/formatDateTime";
 
 type Props = {
   visible: boolean;
@@ -55,7 +56,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
             >
               <Fontisto name="date" size={24} color={color.text.secundary} />
               <Text style={{ color: color.text.primary, fontSize: 14 }}>
-                {message?.data}
+                {formatDate(message?.data)}
               </Text>
             </View>
 
@@ -74,7 +75,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
                   fontFamily: "Poppins_400Regular",
                 }}
               >
-                {message?.horario}
+                {formatTime(message?.horario)}
               </Text>
             </View>
           </View>
@@ -89,7 +90,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
                   fontFamily: "Poppins_400Regular",
                 }}
               >
-                {message?.tipo_mensagem}
+                {message?.tipo_mensagem?.descricao_tipo}
               </Text>
             </Text>
           </View>
@@ -107,33 +108,7 @@ const ModalDetailsMessageSend = ({ visible, setVisible }: Props) => {
             </Text>
           </View>
 
-          <View
-            style={{
-              flexDirection: "row",
-              gap: 8,
-              justifyContent: "center",
-              marginTop: 14,
-            }}
-          >
-            <Text
-              style={{
-                color: color.text.secundary,
-                fontSize: 18,
-                fontFamily: "Poppins_400Regular",
-              }}
-            >
-              SITUAÇÃO:{" "}
-            </Text>
-            <Text
-              style={{
-                color: color.text.primary,
-                fontSize: 18,
-                fontFamily: "Poppins_400Regular",
-              }}
-            >
-              ATIVO
-            </Text>
-          </View>
+
 
           <TouchableOpacity
             style={{

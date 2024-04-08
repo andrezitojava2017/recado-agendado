@@ -13,7 +13,7 @@ export const addNewSchedule = async (schedule: IAgendamento) => {
   }
 };
 
-export const getListSchedule = async () => {
+export const getListMessage = async (status: string) => {
   let { data: agendamento, error } = await supabase
     .from('agendamento')
     .select(
@@ -21,12 +21,12 @@ export const getListSchedule = async () => {
       tipo_mensagem(descricao_tipo )
     `
     )
-    .eq('status', 'agendado');
+    .eq('status', status);
 
   if (error) {
     console.log('Ocorreu um erro na consulta!');
     throw new Error('Ocorreu um erro na consulta!');
   }
-
+  console.log(agendamento);
   return agendamento;
 };
