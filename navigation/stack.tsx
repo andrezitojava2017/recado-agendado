@@ -6,11 +6,50 @@ import Home from '../app/screens/home/home';
 import Schedule from '../app/screens/schedule/schedule';
 import Register from '../app/screens/register/register';
 import ViewListContacts from '../app/components/contacts/contacts';
+import { useEffect, useState } from 'react';
+import { SCREEN_DEFAULT } from '../app/constants/screenDefault';
+import { supabase } from '../app/config/supabase';
+import * as SplashScreen from 'expo-splash-screen';
+import { ToastAndroid } from 'react-native';
+import { AuthError } from '@supabase/supabase-js';
+
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
+
+    const [screenDefault, setScreenDefault] = useState<string>('')
+
+    useEffect(() => {
+
+        async function checkAuth() {
+            try {
+                const { data: { session }, error } = await supabase.auth.getSession();
+
+                if (session) {
+                    setScreenDefault(SCREEN_DEFAULT.home);
+                } else {
+                    setScreenDefault(SCREEN_DEFAULT.login);
+                }
+            } catch (error: any) {
+                ToastAndroid.showWithGravity(error.message, 4000, ToastAndroid.SHORT)
+            } finally {
+                await SplashScreen.hideAsync(); // Oculta a splash screen
+            }
+        }
+
+        checkAuth();
+
+
+    }, [])
+
+
+    if (screenDefault === '') {
+        // return <Text>CARREGANDO SESSÃO</Text>
+        return null
+    }
+
     return (
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName={screenDefault}>
             <Stack.Screen
                 name="Login"
                 component={Login}

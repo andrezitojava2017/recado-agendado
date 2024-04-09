@@ -27,6 +27,5 @@ export const getListMessage = async (status: string) => {
     console.log('Ocorreu um erro na consulta!');
     throw new Error('Ocorreu um erro na consulta!');
   }
-  console.log(agendamento);
   return agendamento;
 };

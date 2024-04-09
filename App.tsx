@@ -6,9 +6,12 @@ import { GochiHand_400Regular } from '@expo-google-fonts/gochi-hand'
 import * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigation from './navigation/stack';
+import { useState } from 'react';
+
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+
 
   let [fontsLoaded, fontError] = useFonts({
     GochiHand_400Regular,
@@ -19,7 +22,7 @@ export default function App() {
     return <Text>Fonte não carregada</Text>;
   }
 
-  SplashScreen.hideAsync()
+  //SplashScreen.hideAsync()
 
   return (
     <NavigationContainer>
