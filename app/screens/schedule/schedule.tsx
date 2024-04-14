@@ -15,6 +15,7 @@ import { clearForm } from "./actions";
 
 const Schedule = ({ navigation }: any) => {
 
+    const [loading, setLoading] = useState<boolean>(false)
     const [date, setDate] = useState<Date>(new Date());
     const [visibleModal, setVisibleModal] = useState<boolean>(false);
     const [typeEvent, setTypeEvent] = useState<ITipoMensagem>({});
@@ -95,6 +96,7 @@ const Schedule = ({ navigation }: any) => {
     const saveSchedule = async () => {
 
         try {
+            setLoading(true)
 
             await addNewSchedule(newSchedule) // salva novo agendamento
             clearForm(setNewSchedule, setTypeEvent) // limpa os campos
@@ -102,6 +104,8 @@ const Schedule = ({ navigation }: any) => {
         } catch (error: any) {
 
             ToastAndroid.showWithGravity(error, 4000, ToastAndroid.SHORT)
+        } finally {
+            setLoading(false)
         }
 
     }
@@ -214,6 +218,7 @@ const Schedule = ({ navigation }: any) => {
                         <TouchableOpacity
                             style={[styles.form, { justifyContent: 'center' }]}
                             onPress={saveSchedule}
+                            disabled={loading}
                         >
                             <Text style={[styles.text, { color: color.text.secundary, fontFamily: 'GochiHand_400Regular' }]}>SALVAR AGENDAMENTO</Text>
                         </TouchableOpacity>
