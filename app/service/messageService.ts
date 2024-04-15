@@ -31,3 +31,14 @@ export const getListMessage = async (status: string) => {
   }
   return agendamento;
 };
+
+export const deleteMessage = async (scheduleSelected: IAgendamento) => {
+  const { error } = await supabase
+    .from('agendamento')
+    .delete()
+    .eq('id', scheduleSelected.id);
+
+  if (error) {
+    throw new Error('Não foi possivel excluir essa mensagem!');
+  }
+};

@@ -5,8 +5,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { color } from '../../../utils/colors';
 import { IAgendamento } from "../../../interface/IAgendamento";
-import { useEffect, useState } from "react";
-import { getListMessage } from "../../../service/messageService";
+import { useState } from "react";
+import { deleteMessage } from "../../../service/messageService";
 import { useSchedule } from "../../../hooks/useSchedule";
 import { STATUS } from "../../../constants/statusMessage";
 import { getMessages } from "./actions/actions";
@@ -14,22 +14,6 @@ import { getMessages } from "./actions/actions";
 
 const ListSchedule = () => {
 
-    const schedule = [{
-        destinatario: 'Amor', contato: '6698101',
-        mensagem: 'Mensagem de teste de aplicativo',
-        data: '07/03/2024',
-        horario: '10:00',
-        tipo: 'Aniversário'
-    },
-    {
-        destinatario: 'Escola', contato: '6698101',
-        mensagem: 'Mensagem de teste de aplicativo',
-        data: '07/03/2024',
-        horario: '10:00',
-        tipo: 'Lembrete'
-    },
-
-    ]
     const { listSchedule, setListSchedule } = useSchedule({ status: STATUS.agendado })
     const [searchUpdating, setSearchUpdating] = useState<boolean>(false)
 
@@ -47,6 +31,20 @@ const ListSchedule = () => {
         }
     }
 
+    const deleteSchedule = async (item: IAgendamento) => {
+        try {
+
+            await deleteMessage(item)
+            await getSchedules()
+
+        } catch (error: any) {
+
+            ToastAndroid.showWithGravity(error.message, 4000, ToastAndroid.SHORT)
+        }
+
+    }
+
+
     const renderItem = (item: IAgendamento) => {
         return (
             <View style={{
@@ -58,13 +56,15 @@ const ListSchedule = () => {
                 //paddingLeft: 14
             }}
             >
-                <View>
+                <View style={{ maxWidth: '80%' }}>
                     <TouchableOpacity >
                         <DataMessage message={item} />
                     </TouchableOpacity>
                 </View>
                 <View >
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => deleteSchedule(item)}
+                    >
                         <MaterialCommunityIcons name="delete-empty" size={38} color={color.icons.btnFloat} />
                     </TouchableOpacity>
                     <TouchableOpacity>
