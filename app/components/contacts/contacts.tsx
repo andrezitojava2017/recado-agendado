@@ -19,7 +19,7 @@ LogBox.ignoreLogs([
 const ViewListContacts = ({ route, navigation }: any) => {
 
     const [listContacts, setListContacts] = useState<identiesContacts[]>([])
-    const { onSelectContact, dataContact } = route.params;
+    //const { onSelectContact, dataContact } = route.params;
 
     useEffect(() => {
         (async () => {

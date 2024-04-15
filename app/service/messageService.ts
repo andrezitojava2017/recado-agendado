@@ -2,9 +2,11 @@ import { supabase } from '../config/supabase';
 import { IAgendamento } from '../interface/IAgendamento';
 
 export const addNewSchedule = async (schedule: IAgendamento) => {
+  const value = { ...schedule, tipo_mensagem: schedule.tipo_mensagem?.id };
+
   const { data, error } = await supabase
     .from('agendamento')
-    .insert(schedule)
+    .insert(value)
     .select();
 
   if (error) {

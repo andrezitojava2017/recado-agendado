@@ -49,7 +49,7 @@ const StackNavigation = () => {
     }
 
     return (
-        <Stack.Navigator initialRouteName={'Login'}>
+        <Stack.Navigator initialRouteName={'Home'}>
             <Stack.Screen
                 name="Login"
                 component={Login}

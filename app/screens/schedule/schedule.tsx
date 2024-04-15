@@ -27,6 +27,7 @@ const Schedule = ({ navigation }: any) => {
         mensagem: '',
         status: 'agendado',
         tipo_mensagem: {
+            id: 0,
             descricao_tipo: ''
         }
     })
@@ -98,6 +99,7 @@ const Schedule = ({ navigation }: any) => {
         try {
             setLoading(true)
 
+            console.log(newSchedule)
             await addNewSchedule(newSchedule) // salva novo agendamento
             clearForm(setNewSchedule, setTypeEvent) // limpa os campos
 
