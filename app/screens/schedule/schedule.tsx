@@ -99,7 +99,6 @@ const Schedule = ({ navigation }: any) => {
         try {
             setLoading(true)
 
-            console.log(newSchedule)
             await addNewSchedule(newSchedule) // salva novo agendamento
             clearForm(setNewSchedule, setTypeEvent) // limpa os campos
 
